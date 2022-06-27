@@ -62,5 +62,20 @@ namespace ProductReview
                      item.review + "\tIsLike: " + item.isLike);
             }
         }
+
+        //Uc-3 displaying greater than 3 records of high rate
+
+        public void SpecificRecords(List<ProductModel> products)
+        {
+            var data = from item in products
+                       where item.rating > 3 && (item.productID == 11 || item.productID == 14 || item.productID == 17)
+                       select item;
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.productID + "\tUserID: " + item.userID + "\tRating: " + item.rating + "\tReview: " +
+                     item.review + "\tIsLike: " + item.isLike);
+            }
+        }
     }
 }
