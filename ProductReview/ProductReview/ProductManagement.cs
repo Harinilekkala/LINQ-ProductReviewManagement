@@ -8,6 +8,7 @@ namespace ProductReview
 {
     public class ProductManagement
     {
+        //UC-1 Creating table gor adding and dispalying the data
         public List<ProductModel> AddData()
         {
             List<ProductModel> table = new List<ProductModel>()
@@ -46,6 +47,19 @@ namespace ProductReview
             {
                 Console.WriteLine("ProductID: " + data.productID + "\t --------\t UserID: " + data.userID + "\t -------- \t Rating: " + data.rating + "\t -------- Review: " +
                     data.review + "\t -------- \t IsLike: " + data.isLike);
+            }
+        }
+        
+        //Uc-2 for displaying records to which is have high rating
+
+        public void TopThreeData(List<ProductModel> products)
+        {
+            var data = (from item in products orderby item.rating descending select item).Take(3);
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.productID + "\tUserID: " + item.userID + "\tRating: " + item.rating + "\tReview: " +
+                     item.review + "\tIsLike: " + item.isLike);
             }
         }
     }
