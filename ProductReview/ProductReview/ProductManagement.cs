@@ -88,5 +88,17 @@ namespace ProductReview
                 Console.WriteLine("ProductID: " + item.productID + " has Count of: " + item.count);
             }
         }
+
+        //Uc-4 To display the Product id and review from record list
+
+        public void SelectOperator(List<ProductModel> products)
+        {
+            var data = products.Select(x => (x.productID, x.review));
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.productID + "\tReview: " + item.review);
+            }
+        }
     }
 }
