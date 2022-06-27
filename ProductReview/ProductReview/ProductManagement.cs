@@ -100,5 +100,17 @@ namespace ProductReview
                 Console.WriteLine("ProductID: " + item.productID + "\tReview: " + item.review);
             }
         }
+
+        //Uc-6 To skip top 5 Records in list
+
+        public void SkipRecords(List<ProductModel> products)
+        {
+            var data = products.OrderByDescending(x => (x.rating)).Skip(5);
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.productID + "\tUserID: " + item.userID + "\tRating: " + item.rating + "\tReview: " +
+                     item.review + "\tIsLike: " + item.isLike);
+            }
+        }
     }
 }

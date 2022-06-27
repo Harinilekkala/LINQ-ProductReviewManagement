@@ -11,7 +11,7 @@ namespace ProductReview
             ProductManagement getMethod = new ProductManagement();
             var table = getMethod.AddData();
 
-            Console.WriteLine(" Enter Option To Display Data \n----------------------------------------------\n1. To View Data\n2. To view Top 3 Data\n3. To view Rating > 3\n4. To Count ProductID \n5. To view ProductID and Review From Record List" +
+            Console.WriteLine(" Enter Option To Display Data \n----------------------------------------------\n1. To View Data\n2. To view Top 3 Data\n3. To view Rating > 3\n4. To Count ProductID \n5. To view ProductID and Review From Record List \n6 To Skip Records" +
                 "\n\nEnter a Number");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
@@ -43,6 +43,12 @@ namespace ProductReview
                 case 5:
                     {
                         getMethod.SelectOperator(table);
+                        break;
+                    }
+
+                case 6:
+                    {
+                        getMethod.SkipRecords(table);
                         break;
                     }
                 default:
