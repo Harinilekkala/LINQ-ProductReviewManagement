@@ -165,7 +165,7 @@ namespace ProductReview
                     item.Field<double>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tIsLike: " + item.Field<bool>("IsLike"));
             }
         }
-        
+
         //Uc-9
         public void IsLike(DataTable products)
         {
@@ -176,7 +176,7 @@ namespace ProductReview
                     item.Field<double>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tIsLike: " + item.Field<bool>("IsLike"));
             }
         }
-        
+
         //Uc-10
         public void AverageRating(DataTable products)
         {
@@ -185,6 +185,18 @@ namespace ProductReview
             foreach (var item in data)
             {
                 Console.WriteLine("ProductID: " + item.productID + "\tAverage: " + item.average);
+            }
+        }
+
+        //Uc-11
+
+        public void ReviewMessage(DataTable products)
+        {
+            var data = products.AsEnumerable().Where(x => (x.Field<string>("Review") == "Nice"));
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + "\tUserID: " + item.Field<int>("UserID") + "\tRating: " +
+                    item.Field<double>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tIsLike: " + item.Field<bool>("IsLike"));
             }
         }
     }

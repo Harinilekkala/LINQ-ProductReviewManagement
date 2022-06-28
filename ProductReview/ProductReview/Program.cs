@@ -16,8 +16,9 @@ namespace ProductReview
             var table = getMethod.AddData();
             var dataTable = getMethod.DataTable();
 
-            Console.WriteLine("Enter 1 to View Data\n2 to view Top 3 Data\n3 to view Rating > 3\n4 to Count ProductID" +
-                "\n5 to view ProductID and Review\n6 to Skip Records\n7 to view DataTable\n8 to view True IsLike\n9 to Average Rating\n\nEnter a Number");
+            Console.WriteLine("1 - Add And Display Review \n2 - Get Top Three Reviews \n3 - Sort By Rating Of Products 101,103,105" +
+               "\n4 - Get Product Review Count \n5 - Select Specific Column \n6 - Skip Top Five Review \n7 - Add And Display Review Usign DataTable" +
+               "\n8 - Sort By Is Like \n10 - Sort By Review Message");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
             switch (userInput)
@@ -69,7 +70,11 @@ namespace ProductReview
                         getMethod.AverageRating(dataTable);
                         break;
                     }
-                
+
+                case 10:
+                    getMethod.ReviewMessage(dataTable);
+                    break;
+
                 default:
                     {
                         Console.WriteLine("Enter a valid Number");
