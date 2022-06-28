@@ -18,7 +18,7 @@ namespace ProductReview
 
             Console.WriteLine("1 - Add And Display Review \n2 - Get Top Three Reviews \n3 - Sort By Rating Of Products 101,103,105" +
                "\n4 - Get Product Review Count \n5 - Select Specific Column \n6 - Skip Top Five Review \n7 - Add And Display Review Usign DataTable" +
-               "\n8 - Sort By Is Like \n10 - Sort By Review Message");
+               "\n8 - Sort By Is Like\n9 - Average Rating \n10 - Sort By Review Message \n11 - Additional Data");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
             switch (userInput)
@@ -72,9 +72,16 @@ namespace ProductReview
                     }
 
                 case 10:
-                    getMethod.ReviewMessage(dataTable);
-                    break;
+                    {
+                        getMethod.ReviewMessage(dataTable);
+                        break;
+                    }
 
+                case 11:
+                    {
+                        getMethod.AdditionalData(dataTable);
+                        break ;
+                    }
                 default:
                     {
                         Console.WriteLine("Enter a valid Number");

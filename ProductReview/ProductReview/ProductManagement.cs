@@ -199,5 +199,17 @@ namespace ProductReview
                     item.Field<double>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tIsLike: " + item.Field<bool>("IsLike"));
             }
         }
+
+        //Uc-12
+
+        public void AdditionalData(DataTable products)
+        {
+            var data = products.AsEnumerable().OrderBy(x => (x.Field<double>("Rating"))).Where(x => (x.Field<int>("UserId") == 1));
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + "\tUserID: " + item.Field<int>("UserID") + "\tRating: " +
+                    item.Field<double>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tIsLike: " + item.Field<bool>("IsLike"));
+            }
+        }
     }
 }
