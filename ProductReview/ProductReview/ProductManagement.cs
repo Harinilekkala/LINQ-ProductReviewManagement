@@ -168,6 +168,17 @@ namespace ProductReview
             }
         }
 
+        //Uc-9 true records
+        public void IsLike(DataTable products)
+        {
+            var data = products.AsEnumerable().Where(x => (x.Field<string>("IsLike") == "True"));
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.Field<string>("ProductID") + "\tUserID: " + item.Field<string>("UserID") + "\tRating: "
+            + item.Field<string>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tIsLike: " + item.Field<string>("IsLike"));
+            }
+        }
+
 
 
     }
